@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
     "content-hash": "b3fb727841a35b0ae0020f6e5520dda7",
@@ -1551,16 +1551,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "1.34.1",
+            "version": "1.34.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "19201b87f7dba2a7cbf1cccdf0e1da13c04ee9c9"
+                "reference": "6689b51b1dd5b1471c0f2c6df426037824114acc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/19201b87f7dba2a7cbf1cccdf0e1da13c04ee9c9",
-                "reference": "19201b87f7dba2a7cbf1cccdf0e1da13c04ee9c9",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/6689b51b1dd5b1471c0f2c6df426037824114acc",
+                "reference": "6689b51b1dd5b1471c0f2c6df426037824114acc",
                 "shasum": ""
             },
             "require": {
@@ -1568,8 +1568,11 @@
                 "symfony/translation": "~2.6 || ~3.0 || ~4.0"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "~2",
                 "phpunit/phpunit": "^4.8.35 || ^5.7"
+            },
+            "suggest": {
+                "friendsofphp/php-cs-fixer": "Needed for the `composer phpcs` command. Allow to automatically fix code style.",
+                "phpstan/phpstan": "Needed for the `composer phpstan` command. Allow to detect potential errors."
             },
             "type": "library",
             "extra": {
@@ -1602,7 +1605,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2018-11-08T13:33:47+00:00"
+            "time": "2018-11-12T22:45:42+00:00"
         },
         {
             "name": "nikic/php-parser",
