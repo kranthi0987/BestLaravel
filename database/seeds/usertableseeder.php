@@ -12,14 +12,13 @@ class usertableseeder extends Seeder
      */
     public function run()
     {
-        //
         $faker = Faker\Factory::create();
-        //
         User::create([
             'name' => "kkkk",
             'email' => "test@gmail.com",
             'password' => bcrypt('123456'),
             'activation_token' => str_random(60)
+//roles()->attach()$faker->randomElement(['seller', 'buyer']),
 
         ]);
         User::create([
@@ -29,7 +28,7 @@ class usertableseeder extends Seeder
             'activation_token' => str_random(60)
 
         ]);
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < 3; $i++) {
             User::create([
                 'name' => $faker->name,
                 'email' => $faker->email,

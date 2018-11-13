@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Notifications\SignupActivate;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
-use Carbon\Carbon;
+use App\Notifications\SignupActivate;
+use App\Role;
 use App\User;
-use Laravolt\Avatar\Avatar;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Laravolt\Avatar\Avatar;
 
 class AuthController extends Controller
 {
@@ -40,6 +41,8 @@ class AuthController extends Controller
         $avatar = Avatar::create($user->name)->getImageObject()->encode('png');
         Storage::put('avatars/'.$user->id.'/avatar.png', (string) $avatar);
 
+        $user->roles()->attach(Role::where('name', 'client')->first());
+
         $user->notify(new SignupActivate($user));
         return response()->json([
             'message' => 'Successfully created user!',
@@ -62,6 +65,7 @@ class AuthController extends Controller
         $user->save();
         return $user;
     }
+
     /**
      * Login user and create token
      *
@@ -88,6 +92,7 @@ class AuthController extends Controller
                 'message' => 'Unauthorized',
                 'stats'=>'false'
             ], 401);
+
         $user = $request->user();
         $tokenResult = $user->createToken('Personal Access Token');
         $token = $tokenResult->token;
