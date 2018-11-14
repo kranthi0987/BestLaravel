@@ -10,7 +10,6 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-use Laravolt\Avatar\Avatar;
 
 class AuthController extends Controller
 {
@@ -38,15 +37,15 @@ class AuthController extends Controller
         ]);
         $user->save();
 
-        $avatar = Avatar::create($user->name)->getImageObject()->encode('png');
-        Storage::put('avatars/'.$user->id.'/avatar.png', (string) $avatar);
+        $avatar = (new \Laravolt\Avatar\Avatar)->create($user->name)->getImageObject()->encode('png');
+        Storage::put('avatars/' . $user->id . '/avatar.png', (string)$avatar);
 
         $user->roles()->attach(Role::where('name', 'client')->first());
 
         $user->notify(new SignupActivate($user));
         return response()->json([
             'message' => 'Successfully created user!',
-            'stats'=>'true'
+            'stats' => 'true'
         ], 201);
     }
 
@@ -57,13 +56,14 @@ class AuthController extends Controller
         if (!$user) {
             return response()->json([
                 'message' => 'This activation token is invalid.',
-                'stats'=>'false'
+                'stats' => 'false'
             ], 404);
         }
         $user->active = true;
         $user->activation_token = '';
         $user->save();
-        return $user;
+        return response()->json(['message' => 'Successfully activated user!',
+            'stats' => 'true', $user], 200);
     }
 
     /**
@@ -87,10 +87,10 @@ class AuthController extends Controller
         $credentials['active'] = 1;
         $credentials['deleted_at'] = null;
 
-        if(!Auth::attempt($credentials))
+        if (!Auth::attempt($credentials))
             return response()->json([
-                'message' => 'Unauthorized',
-                'stats'=>'false'
+                'message' => 'Account is not activated, check the mail',
+                'stats' => 'false'
             ], 401);
 
         $user = $request->user();
@@ -102,7 +102,7 @@ class AuthController extends Controller
         return response()->json([
             'access_token' => $tokenResult->accessToken,
             'token_type' => 'Bearer',
-            'stats'=>'true',
+            'stats' => 'true',
             'expires_at' => Carbon::parse(
                 $tokenResult->token->expires_at
             )->toDateTimeString()
@@ -119,7 +119,7 @@ class AuthController extends Controller
         $request->user()->token()->revoke();
         return response()->json([
             'message' => 'Successfully logged out',
-            'stats'=>'true'
+            'stats' => 'true'
         ]);
     }
 
