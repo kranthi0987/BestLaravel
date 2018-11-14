@@ -10,7 +10,6 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-use Laravolt\Avatar\Avatar;
 
 class AuthController extends Controller
 {
@@ -38,10 +37,10 @@ class AuthController extends Controller
         ]);
         $user->save();
 
-        $avatar = Avatar::create($user->name)->getImageObject()->encode('png');
+        $avatar = (new \Laravolt\Avatar\Avatar)->create($user->name)->getImageObject()->encode('png');
         Storage::put('avatars/'.$user->id.'/avatar.png', (string) $avatar);
 
-        $user->roles()->attach(Role::where('name', 'client')->first());
+//        $user->roles()->attach(Role::where('name', 'client')->first());
 
         $user->notify(new SignupActivate($user));
         return response()->json([
