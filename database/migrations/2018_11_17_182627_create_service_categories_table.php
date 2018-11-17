@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCustomerPaymentDetailsTable extends Migration
+class CreateServiceCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateCustomerPaymentDetailsTable extends Migration
      */
     public function up()
     {
-        Schema::create('customer_payment_details', function (Blueprint $table) {
+        Schema::create('service_categories', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('customer_payment_details_id')->primary;
-            $table->string('customer_id');
-            $table->string('payment_method_code');
-            $table->string('payment_details');
+            $table->integer('service_category_code');
+            $table->integer('parent_service_category_code');
+            $table->string('service_category_description');
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class CreateCustomerPaymentDetailsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('customer_payment_details');
+        Schema::dropIfExists('service_categories');
     }
 }

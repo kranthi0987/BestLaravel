@@ -25,19 +25,23 @@ class AuthController extends Controller
     public function signup(Request $request)
     {
         $request->validate([
-            'name' => 'required|string',
+            'user_name' => 'required|string',
             'email' => 'required|string|email|unique:users',
-            'password' => 'required|string|confirmed'
+            'password' => 'required|string|confirmed',
+            'user_phone_number' => 'required|min:5|numeric'
         ]);
         $user = new User([
-            'name' => $request->name,
+            'user_id' => rand(1, 999),
+            'user_name' => $request->user_name,
             'email' => $request->email,
+            'address_id' => '1',
+            'user_phone_number' => $request->user_phone_number,
             'password' => bcrypt($request->password),
             'activation_token' => str_random(60)
         ]);
         $user->save();
 
-        $avatar = (new \Laravolt\Avatar\Avatar)->create($user->name)->getImageObject()->encode('png');
+        $avatar = (new \Laravolt\Avatar\Avatar)->create($user->user_name)->getImageObject()->encode('png');
         Storage::put('avatars/' . $user->id . '/avatar.png', (string)$avatar);
 
         $user->roles()->attach(Role::where('name', 'client')->first());
