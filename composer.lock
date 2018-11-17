@@ -1558,6 +1558,7 @@
         },
         {
             "name": "nesbot/carbon",
+<<<<<<< HEAD
             "version": "1.35.1",
             "source": {
                 "type": "git",
@@ -1568,6 +1569,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/5c05a2be472b22f63291d192410df9f0e0de3b19",
                 "reference": "5c05a2be472b22f63291d192410df9f0e0de3b19",
+=======
+            "version": "1.34.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/briannesbitt/Carbon.git",
+                "reference": "6689b51b1dd5b1471c0f2c6df426037824114acc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/6689b51b1dd5b1471c0f2c6df426037824114acc",
+                "reference": "6689b51b1dd5b1471c0f2c6df426037824114acc",
+>>>>>>> 2722563b56af07f163bf118f76bb90bc08ff76a7
                 "shasum": ""
             },
             "require": {
@@ -1612,7 +1625,11 @@
                 "datetime",
                 "time"
             ],
+<<<<<<< HEAD
             "time": "2018-11-14T21:55:58+00:00"
+=======
+            "time": "2018-11-12T22:45:42+00:00"
+>>>>>>> 2722563b56af07f163bf118f76bb90bc08ff76a7
         },
         {
             "name": "nikic/php-parser",
