@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -26,8 +24,8 @@ Route::group([
     });
 });
 Route::group([
-    'namespace' => 'Auth',
-    'middleware' => 'api',
+//    'namespace' => 'Auth',
+//    'middleware' => 'api',
     'prefix' => 'password'
 ], function () {
     Route::post('create', 'Api\PasswordResetController@create');

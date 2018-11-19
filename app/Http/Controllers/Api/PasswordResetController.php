@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use App\Notifications\PasswordResetRequest;
 use App\Notifications\PasswordResetSuccess;
 use App\PasswordReset;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+
 
 class PasswordResetController extends Controller
 {
@@ -32,7 +33,7 @@ class PasswordResetController extends Controller
             [
                 'email' => $user->email,
                 'token' => str_random(60)
-             ]
+            ]
         );
         if ($user && $passwordReset)
             $user->notify(
@@ -42,6 +43,7 @@ class PasswordResetController extends Controller
             'message' => 'We have e-mailed your password reset link!'
         ]);
     }
+
     /**
      * Find token password reset
      *
@@ -65,7 +67,8 @@ class PasswordResetController extends Controller
         }
         return response()->json($passwordReset);
     }
-     /**
+
+    /**
      * Reset password
      *
      * @param  [string] email
