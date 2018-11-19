@@ -14,7 +14,8 @@
         "laravolt/avatar": "^2.1",
         "mpociot/laravel-apidoc-generator": "^3.0",
         "nesbot/carbon": "^1.34",
-        "predis/predis": "^1.1"
+        "predis/predis": "^1.1",
+        "zircote/swagger-php": "^3.0"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
