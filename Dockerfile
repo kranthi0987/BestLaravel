@@ -1,17 +1,17 @@
 FROM library/ubuntu:16.04
 RUN apt-get update
 
-RUN apt-get update && apt-get install -y libmcrypt-dev \
-    mysql-client libmagickwand-dev --no-install-recommends \
+#RUN apt-get update && apt-get install -y libmcrypt-dev \
+#    mysql-client libmagickwand-dev --no-install-recommends \
 #    && pecl install imagick \
-    && docker-php-ext-enable imagick \
-    && docker-php-ext-install mcrypt pdo_mysql
-RUN apt-get update && apt-get install -yq --fix-missing apt-utils
-RUN apt-get update && apt-get install -yq --fix-missing language-pack-en-base
+#    && docker-php-ext-enable imagick \
+#    && docker-php-ext-install mcrypt php-dso_mysql
+RUN  apt-get install -yq --fix-missing apt-utils
+RUN  apt-get install -yq --fix-missing language-pack-en-base
 ENV LC_ALL=en_US.UTF-8
-RUN apt-get update && apt-get install -yq --fix-missing openssl
-RUN apt-get update && apt-get install -yq --fix-missing zip unzip
-RUN apt-get update && apt-get install -yq --fix-missing software-properties-common curl
+RUN  apt-get install -yq --fix-missing openssl
+RUN apt-get install -yq --fix-missing zip unzip
+RUN  apt-get install -yq --fix-missing software-properties-common curl
 RUN add-apt-repository ppa:ondrej/php
 RUN sed -i'' 's/archive\.ubuntu\.com/us\.archive\.ubuntu\.com/' /etc/apt/sources.list
 RUN apt-get update
@@ -69,7 +69,7 @@ RUN apt-get update && apt-get install -yq --fix-missing \
     php-ds \
     php-sass \
     php-lua \
-    php-geos \
+   # php-geos \
     php-xdebug php-imagick imagemagick nginx
 
 RUN update-alternatives --set php /usr/bin/php7.2
@@ -94,20 +94,23 @@ RUN \
     echo 'Invalid installer' . PHP_EOL; exit(1); }" \
   && php /tmp/composer-setup.php --filename=composer --install-dir=$COMPOSER_HOME
 
+
 RUN apt-get install -y apache2
+RUN a2enmod rewrite
 RUN apt-get install -y git
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-RUN cd /var/www/
-RUN git clone https://github.com/kranthi0987/BestLaravel.git
-RUN cd Bestlaravel
-
-RUN composer install
+#RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+RUN cd /var/www/ && git clone https://github.com/kranthi0987/BestLaravel.git
+RUN cd /var/www/BestLaravel/&& \
+    composer install --no-interaction 
+#RUN composer
+#RUN ls
+#RUN composer install --no-interaction 
 RUN chown -R www-data:www-data \
-        /var/www/storage \
-        /var/www/bootstrap/cache
+        /var/www/BestLaravel/storage \
+        /var/www/BestLaravel/bootstrap/cache
 
-RUN php artisan optimize
-CMD php artisan serve --host=0.0.0.0 --port=8000
+#RUN cd /var/www/BestLaravel/ && php artisan optimize
+CMD cd /var/www/BestLaravel/ php artisan serve --host=0.0.0.0 --port=8000
 EXPOSE 8000
 EXPOSE 80
 EXPOSE 443

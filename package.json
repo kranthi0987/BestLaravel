@@ -19,7 +19,7 @@
         "popper.js": "^1.12",
         "vue": "^2.5.17"
     },
-  "dependencies": {
-    "gulp": "^4.0.0"
+    "dependencies": {
+        "gulp": "^4.0.0"
     }
 }

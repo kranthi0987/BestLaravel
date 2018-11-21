@@ -12,17 +12,20 @@ services:
     environment:
     - "DB_PORT=3306"
     - "DB_HOST=database"
-
-  # The Web Server
-  web:
-    build:
-      context: ./
-      dockerfile: web.dockerfile
-    working_dir: /var/www
-    volumes_from:
-    - app
     ports:
-    - 8080:80
+    -8000:80
+    -443:80
+    -8080:80
+  # The Web Server
+  #  web:
+  #    build:
+  #      context: ./
+  #      dockerfile: web.dockerfile
+  #    working_dir: /var/www
+  #    volumes_from:
+  #    - app
+  #    ports:
+  #    - 8080:80
   # redis
   cache:
     image: redis:3.0-alpine
