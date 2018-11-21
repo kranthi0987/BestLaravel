@@ -16,6 +16,7 @@ services:
     - "8000:80"
     - "443:80"
     - "8080:80"
+    tty: true
   # The Web Server
   #  web:
   #    build:
