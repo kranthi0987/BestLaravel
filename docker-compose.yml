@@ -13,9 +13,9 @@ services:
     - "DB_PORT=3306"
     - "DB_HOST=database"
     ports:
-    -8000:80
-    -443:80
-    -8080:80
+    - "8000:80"
+    - "443:80"
+    - "8080:80"
   # The Web Server
   #  web:
   #    build:
