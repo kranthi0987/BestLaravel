@@ -94,6 +94,25 @@ RUN \
     echo 'Invalid installer' . PHP_EOL; exit(1); }" \
   && php /tmp/composer-setup.php --filename=composer --install-dir=$COMPOSER_HOME
 
+RUN apt-get update && apt-get install -yq --fix-missing apt-transport-https
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
+RUN apt-get update && apt-get install -yq --fix-missing nodejs
+RUN apt-get update && apt-get install -yq --fix-missing git
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+RUN apt-get update && apt-get install -yq --fix-missing yarn
+RUN yarn global add bower --network-concurrency 1
+RUN wget https://phar.phpunit.de/phpunit.phar
+RUN chmod +x phpunit.phar
+RUN mv phpunit.phar /usr/local/bin/phpunit
+
+RUN npm install -g node-gyp
+RUN npm install --unsafe-perm -g node-sass
+RUN npm install -g gulp
+
 
 RUN apt-get install -y apache2
 RUN a2enmod rewrite
@@ -111,6 +130,11 @@ RUN chown -R www-data:www-data \
 
 #RUN cd /var/www/BestLaravel/ && php artisan optimize
 CMD cd /var/www/BestLaravel/ php artisan serve --host=0.0.0.0 --port=8000
+# Clean system up
+RUN apt-get -yq upgrade
+RUN apt-get -yq autoremove
+RUN apt-get -yq clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 EXPOSE 8000
 EXPOSE 80
 EXPOSE 443
+CMD ["php7.2-fpm", "-g", "daemon off;"]
