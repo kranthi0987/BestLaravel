@@ -1,4 +1,8 @@
 <?php
+/**
+ * Copyright (c) 2018.
+ * sanjay kranthi  kranthi0987@gmail.com
+ */
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +26,13 @@ Route::group([
         Route::get('logout', 'Api\AuthController@logout');
         Route::get('user', 'Api\AuthController@user');
     });
+});
+
+Route::group([
+    'middleware' => 'api'
+], function () {
+    Route::get('products', 'Api\ProductsApiController@index');
+
 });
 Route::group([
 //    'namespace' => 'Auth',

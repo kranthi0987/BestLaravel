@@ -1,128 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title></title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.min.js"></script>
-
-    <style>
-        .progress {
-            position: relative;
-            width: 100%;
-            border: 1px solid #7F98B2;
-            padding: 1px;
-            border-radius: 3px;
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.7/css/fileinput.css" media="all"
+          rel="stylesheet" type="text/css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" media="all"
+          rel="stylesheet" type="text/css"/>
+    <style type="text/css">
+        .main-section {
+            margin: 0 auto;
+            padding: 20px;
+            margin-top: 100px;
+            background-color: #fff;
+            box-shadow: 0px 0px 20px #c1c1c1;
         }
 
-        .bar {
-            background-color: #B4F5B4;
-            width: 0%;
-            height: 25px;
-            border-radius: 3px;
-        }
-
-        .percent {
-            position: absolute;
-            display: inline-block;
-            top: 3px;
-            left: 48%;
-            color: #7F98B2;
+        .fileinput-remove,
+        .fileinput-upload {
+            display: none;
         }
     </style>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
 </head>
-<body>
-
-
+<body class="bg-danger">
 <div class="container">
     <div class="row">
-        <div class="col-sm-8 col-sm-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Simple Vuejs Form Validation with Laravel - ItSolutionStuff.com</div>
+        <div class="col-lg-8 col-sm-12 col-11 main-section">
+            <h1 class="text-center text-danger">product Input Example</h1><br>
 
-
-                <div class="panel-body" id="app">
-                    <form method="POST" action="/vuejs/form" class="form-horizontal" @submit.prevent="onSubmit">
-                        {{ csrf_field() }}
-                        <div :class="['form-group', allerros.name ? 'has-error' : '']">
-                            <label for="name" class="col-sm-4 control-label">Name</label>
-                            <div class="col-sm-6">
-                                <input id="name" name="name" value="" autofocus="autofocus" class="form-control"
-                                       type="text" v-model="form.name">
-                                <span v-if="allerros.name"
-                                      :class="['label label-danger']">@{{ allerros.name[0] }}</span>
-                            </div>
-                        </div>
-                        <div :class="['form-group', allerros.comments ? 'has-error' : '']">
-                            <label for="comments" class="col-sm-4 control-label">Message</label>
-                            <div class="col-sm-6">
-                                <input id="comments" name="comments" class="form-control" type="comments"
-                                       v-model="form.comments">
-                                <span v-if="allerros.comments" :class="['label label-danger']">@{{ allerros.comments[0] }}</span>
-                            </div>
-                        </div>
-                        <input name="file" id="poster" type="file" class="form-control"><br/>
-                        <div class="progress">
-                            <div class="bar"></div>
-                            <div class="percent">0%</div>
-                        </div>
-                        <span v-if="success" :class="['label label-success']">Record submitted successfully!</span>
-                        <button type="submit" class="btn btn-primary">
-                            Send
-                        </button>
-                    </form>
+            {!! csrf_field() !!}
+            <div class="form-group">
+                <div class="file-loading">
+                    <label>
+                        <input type="text" name="name">
+                    </label>
+                    <input id="file-1" type="file" name="file" multiple class="file" data-overwrite-initial="false"
+                           data-min-file-count="2">
                 </div>
             </div>
+
         </div>
     </div>
 </div>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
-<script src="http://malsup.github.com/jquery.form.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.7/js/fileinput.js"
+        type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.7/themes/fa/theme.js"
+        type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" type="text/javascript"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" type="text/javascript"></script>
+
 
 <script type="text/javascript">
-
-    function validate(formData, jqForm, options) {
-        var form = jqForm[0];
-        if (!form.file.value) {
-            alert('File not found');
-            return false;
+    $("#file-1").fileinput({
+        theme: 'fa',
+        uploadUrl: "/products",
+        uploadExtraData: function () {
+            return {
+                _token: $("input[name='_token']").val(),
+            };
+        },
+        allowedFileExtensions: ['jpg', 'png', 'gif'],
+        overwriteInitial: false,
+        maxFileSize: 2000,
+        maxFilesNum: 10,
+        slugCallback: function (filename) {
+            return filename.replace('(', '_').replace(']', '_');
         }
-    }
-
-    (function () {
-
-        var bar = $('.bar');
-        var percent = $('.percent');
-        var status = $('#status');
-
-        $('form').ajaxForm({
-            beforeSubmit: validate,
-            beforeSend: function () {
-                status.empty();
-                var percentVal = '0%';
-                var posterValue = $('input[name=file]').fieldValue();
-                bar.width(percentVal);
-                percent.html(percentVal);
-            },
-            uploadProgress: function (event, position, total, percentComplete) {
-                var percentVal = percentComplete + '%';
-                bar.width(percentVal);
-                percent.html(percentVal);
-            },
-            success: function () {
-                var percentVal = 'Wait, Saving';
-                bar.width(percentVal);
-                percent.html(percentVal);
-            },
-            complete: function (xhr) {
-                status.html(xhr.responseText);
-                alert('Uploaded Successfully');
-                window.location.href = "/products";
-            }
-        });
-
-    })();
+    });
 </script>
+
+
 </body>
 </html>
