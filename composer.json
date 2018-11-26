@@ -14,8 +14,10 @@
         "laravolt/avatar": "^2.1",
         "mpociot/laravel-apidoc-generator": "^3.0",
         "nesbot/carbon": "^1.34",
+      "overtrue/laravel-follow": "^1.1",
         "predis/predis": "^1.1",
         "richdynamix/arc": "^1.0",
+      "spatie/laravel-responsecache": "^4.4",
         "zircote/swagger-php": "^3.0"
     },
     "require-dev": {
