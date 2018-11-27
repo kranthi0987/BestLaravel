@@ -1,4 +1,8 @@
 <?php
+/**
+ * Copyright (c) 2018.
+ * sanjay kranthi  kranthi0987@gmail.com
+ */
 
 namespace App\Http\Controllers\Api;
 
@@ -6,6 +10,7 @@ use App\Http\Controllers\Controller;
 use App\Notifications\PasswordResetRequest;
 use App\Notifications\PasswordResetSuccess;
 use App\PasswordReset;
+use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -65,7 +70,9 @@ class PasswordResetController extends Controller
                 'message' => 'This password reset token is invalid.'
             ], 404);
         }
-        return response()->json($passwordReset);
+        // return response()->json($passwordReset);
+        //return view();
+        return View('Password-rest-form')->with('passwordtoken', $passwordReset);
     }
 
     /**

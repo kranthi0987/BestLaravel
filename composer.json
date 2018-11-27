@@ -11,6 +11,7 @@
         "laravel/framework": "5.7.*",
         "laravel/passport": "^7.0",
         "laravel/tinker": "^1.0",
+      "laravelcollective/html": "^5.7",
         "laravolt/avatar": "^2.1",
         "mpociot/laravel-apidoc-generator": "^3.0",
         "nesbot/carbon": "^1.34",
