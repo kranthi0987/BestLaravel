@@ -42,7 +42,7 @@ class AuthController extends Controller
         $user->save();
 
         $avatar = (new \Laravolt\Avatar\Avatar)->create($user->user_name)->getImageObject()->encode('png');
-        Storage::put('avatars/' . $user->id . '/avatar.png', (string)$avatar);
+        Storage::put('/app/avatars/' . $user->id . '/avatar.png', (string)$avatar);
 
         $user->roles()->attach(Role::where('name', 'client')->first());
 
