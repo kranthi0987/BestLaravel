@@ -1,4 +1,8 @@
 <?php
+/**
+ * Copyright (c) 2018.
+ * sanjay kranthi  kranthi0987@gmail.com
+ */
 
 return [
 
@@ -67,7 +71,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\User::class,
+            'model' => App\Models\User::class,
         ],
 
         // 'users' => [

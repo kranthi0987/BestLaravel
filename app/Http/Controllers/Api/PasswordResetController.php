@@ -7,10 +7,10 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\PasswordReset;
+use App\Models\User;
 use App\Notifications\PasswordResetRequest;
 use App\Notifications\PasswordResetSuccess;
-use App\PasswordReset;
-use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 

@@ -1,10 +1,14 @@
 <?php
+/**
+ * Copyright (c) 2018.
+ * sanjay kranthi  kranthi0987@gmail.com
+ */
 
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Role;
-use App\User;
+use App\Models\Role;
+use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Validator;
 

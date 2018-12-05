@@ -29,6 +29,18 @@
                 </select>
             </label>
         </div>
+
+        <div class="form-group">
+            <label for="description">Product category</label>
+            <label>
+                <select class="form-control" name="company">
+                    @foreach ($categories  as $category)
+                        <option value="{{ $category->id }}">{{ $category->product_category_name }}</option>
+                    @endforeach
+                </select>
+            </label>
+        </div>
+
         <div class="form-group">
             <label for="description">Product Amount</label>
             <label for="productAmount"></label>

@@ -6,7 +6,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Product;
+use App\Models\Product;
+use App\Models\ProductCategory;
 use Illuminate\Http\Request;
 
 class ProductsController extends Controller
@@ -30,7 +31,11 @@ class ProductsController extends Controller
     public function createStep1(Request $request)
     {
         $product = $request->session()->get('product');
-        return view('products.create-step1', compact('product', $product));
+//        $products = [
+//            $product = $request->session()->get('product'),
+        $categories = ProductCategory::all();
+//        ];
+        return view('products.create-step1', compact('product', 'categories'));
     }
     /**
      * Post Request to store step1 info in session
@@ -46,6 +51,7 @@ class ProductsController extends Controller
             'company' => 'required',
             'available' => 'required',
             'description' => 'required',
+//            'category'=>'required',
         ]);
         if (empty($request->session()->get('product'))) {
             $product = new Product();

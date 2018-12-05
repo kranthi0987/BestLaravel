@@ -1,6 +1,10 @@
 <?php
+/**
+ * Copyright (c) 2018.
+ * sanjay kranthi  kranthi0987@gmail.com
+ */
 
-use App\User;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class usertableseeder extends Seeder

@@ -1,4 +1,8 @@
 <?php
+/**
+ * Copyright (c) 2018.
+ * sanjay kranthi  kranthi0987@gmail.com
+ */
 
 return [
 
@@ -31,7 +35,7 @@ return [
     ],
 
     'stripe' => [
-        'model' => App\User::class,
+        'model' => App\Models\User::class,
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
         'webhook' => [

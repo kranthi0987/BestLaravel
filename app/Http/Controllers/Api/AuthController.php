@@ -1,15 +1,21 @@
 <?php
+/**
+ * Copyright (c) 2018.
+ * sanjay kranthi  kranthi0987@gmail.com
+ */
 
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Role;
+use App\Models\User;
 use App\Notifications\SignupActivate;
-use App\Role;
-use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+
+//use Laravolt\Avatar\Facade as Avatar;
 
 class AuthController extends Controller
 {
@@ -41,8 +47,14 @@ class AuthController extends Controller
         ]);
         $user->save();
 
-        $avatar = (new \Laravolt\Avatar\Avatar)->create($user->user_name)->getImageObject()->encode('png');
-        Storage::put('/app/avatars/' . $user->id . '/avatar.png', (string)$avatar);
+//        $avatar = (new \Laravolt\Avatar\Avatar)->create($user->user_name)->getImageObject()->encode('png');
+//        Storage::put('/storage/avatars/' . $user->id . '/avatar.png', (string)$avatar);
+        // Create the default image URL:
+        $avatar = (new \Laravolt\Avatar\Avatar)->create($user->name);
+
+        // Save it using Storage instead of Avatar::save()
+        $image = $avatar->getImageObject()->encode('png');
+        Storage::put('/storage/avatars/' . $user->id . '/avatar.png', $image->stream('png'));
 
         $user->roles()->attach(Role::where('name', 'client')->first());
 

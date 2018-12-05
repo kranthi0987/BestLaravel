@@ -1,7 +1,11 @@
 <?php
+/**
+ * Copyright (c) 2018.
+ * sanjay kranthi  kranthi0987@gmail.com
+ */
 
+use App\Models\User;
 use App\Role;
-use App\User;
 use Illuminate\Database\Seeder;
 
 class roletable extends Seeder

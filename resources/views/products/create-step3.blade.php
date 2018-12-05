@@ -20,6 +20,10 @@
                 <td><strong>{{$product->company}}</strong></td>
             </tr>
             <tr>
+                <td>Product Category:</td>
+                <td><strong>{{$product->product_category_name}}</strong></td>
+            </tr>
+            <tr>
                 <td>Product Available:</td>
                 <td><strong>{{$product->available ? 'Yes' : 'No'}}</strong></td>
             </tr>
