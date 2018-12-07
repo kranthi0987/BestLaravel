@@ -34,8 +34,10 @@
             <label for="description">Product category</label>
             <label>
                 <select class="form-control" name="company">
+
                     @foreach ($categories  as $category)
                         <option value="{{ $category->id }}">{{ $category->product_category_name }}</option>
+                        {{{isset( $product->category ) }}}
                     @endforeach
                 </select>
             </label>
