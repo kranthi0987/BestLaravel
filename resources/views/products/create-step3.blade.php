@@ -21,7 +21,7 @@
             </tr>
             <tr>
                 <td>Product Category:</td>
-                <td><strong>{{$product->product_category_name}}</strong></td>
+                <td><strong>{{$product->category}}</strong></td>
             </tr>
             <tr>
                 <td>Product Available:</td>

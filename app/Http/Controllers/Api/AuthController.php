@@ -47,14 +47,16 @@ class AuthController extends Controller
         ]);
         $user->save();
 
-//        $avatar = (new \Laravolt\Avatar\Avatar)->create($user->user_name)->getImageObject()->encode('png');
-//        Storage::put('/storage/avatars/' . $user->id . '/avatar.png', (string)$avatar);
-        // Create the default image URL:
-        $avatar = (new \Laravolt\Avatar\Avatar)->create($user->name);
+        $avatar = (new \Laravolt\Avatar\Avatar)->create($user->user_name)->getImageObject()->encode('png');
+        Storage::put('/public/avatars/' . $user->id . '/avatar.png', (string)$avatar);
 
-        // Save it using Storage instead of Avatar::save()
-        $image = $avatar->getImageObject()->encode('png');
-        Storage::put('/storage/avatars/' . $user->id . '/avatar.png', $image->stream('png'));
+
+        // Create the default image URL:
+//        $avatar = (new \Laravolt\Avatar\Avatar)->create($user->name);
+//
+//        // Save it using Storage instead of Avatar::save()
+//        $image = $avatar->getImageObject()->encode('png');
+//        Storage::put('/storage/avatars/' . $user->id . '/avatar.png', $image->stream('png'));
 
         $user->roles()->attach(Role::where('name', 'client')->first());
 

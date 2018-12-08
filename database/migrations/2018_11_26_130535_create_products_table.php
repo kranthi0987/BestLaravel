@@ -26,14 +26,14 @@ class CreateProductsTable extends Migration
             $table->string('company');
             $table->longText('description');
             $table->float('amount');
-            $table->integer('category')->unsigned()->nullable();
+            $table->string('category')->nullable();
             $table->boolean('available');
             $table->string('productimg');
             $table->timestamps();
-            $table->softDeletes();
-            $table->foreign('category')
-                ->references('id')->on('product_category')
-                ->onDelete('cascade');
+//            $table->softDeletes();
+//            $table->foreign('category')
+//                ->references('id')->on('product_category')
+//                ->onDelete('cascade');
 
         });
     }

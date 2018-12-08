@@ -33,10 +33,11 @@
         <div class="form-group">
             <label for="description">Product category</label>
             <label>
-                <select class="form-control" name="company">
+                <select class="form-control" name="category">
 
                     @foreach ($categories  as $category)
-                        <option value="{{ $category->id }}">{{ $category->product_category_name }}</option>
+                        <option
+                            value="{{ $category->product_category_name }}">{{ $category->product_category_name }}</option>
                         {{{isset( $product->category ) }}}
                     @endforeach
                 </select>

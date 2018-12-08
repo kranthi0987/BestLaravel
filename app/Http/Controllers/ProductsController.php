@@ -51,7 +51,7 @@ class ProductsController extends Controller
             'company' => 'required',
             'available' => 'required',
             'description' => 'required',
-//            'category'=>'required',
+            'category' => 'required',
         ]);
         if (empty($request->session()->get('product'))) {
             $product = new Product();
