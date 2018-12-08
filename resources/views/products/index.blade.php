@@ -20,7 +20,7 @@
         @foreach($products as $product)
             <tr>
                 <th scope="row">{{$product->id}}</th>
-                <td><a href="/tasks/{{$product->id}}">{{$product->title}}</a></td>
+                <td><a href="/viewproduct/{{$product->id}}">{{$product->name}}</a></td>
                 <td>{{$product->description}}</td>
                 <td>{{$product->category}}</td>
                 <td>{{$product->company}}</td>
@@ -30,4 +30,7 @@
         @endforeach
         </tbody>
     </table>
+
+    {!! $products->render() !!}
+
 @endsection

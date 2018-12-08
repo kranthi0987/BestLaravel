@@ -10,6 +10,24 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
+        <title>dhinchakwale</title>
+        <!-- Bootstrap Core CSS -->
+        <link href="{{ asset('/css/materialize.min.css') }}" rel="stylesheet">
+
+    {{--<link href="{{ asset('/css/datepicker.css') }}" rel="stylesheet" type="text/css">--}}
+    {{--<link href="{{ asset('/css/bootstrap-timepicker.min.css') }}" rel="stylesheet" type="text/css">--}}
+
+    {{--<link href="{{ asset('/css/dataTables.bootstrap.css') }}" rel="stylesheet">--}}
+    <!-- Custom CSS -->
+    {{--<link href="{{ asset('/css/admin.css') }}" rel="stylesheet">--}}
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <![endif]-->
+
+        <!-- jQuery -->
+        <script src="{{ asset('/js/materialize.min.js') }}"></script>
         <style>
             html, body {
                 background-color: #fff;
@@ -84,14 +102,6 @@
                     Laravel
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
             </div>
         </div>
     </body>

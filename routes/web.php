@@ -31,3 +31,4 @@ Route::post('/products/create-step2', 'ProductsController@postCreateStep2');
 Route::post('/products/remove-image', 'ProductsController@removeImage');
 Route::get('/products/create-step3', 'ProductsController@createStep3');
 Route::post('/products/store', 'ProductsController@store');
+Route::get('/viewproduct/{id}', 'ProductsController@viewproduct');

@@ -20,7 +20,8 @@ class ProductsController extends Controller
     public function index(Request $request)
     {
         $request->session()->forget('product');
-        $products = Product::all();
+        $products = Product::paginate(4);
+
         return view('products.index', compact('products', $products));
     }
     /**
@@ -129,6 +130,15 @@ class ProductsController extends Controller
         $product = $request->session()->get('product');
         $product->save();
         return redirect('/products');
+    }
+
+    public function viewproduct($id)
+    {
+
+        $product = Product::findOrFail($id);
+
+
+        return view('products.viewproduct', compact('product'));
     }
 
 }

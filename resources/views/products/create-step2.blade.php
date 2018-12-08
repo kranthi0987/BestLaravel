@@ -12,8 +12,16 @@
         <h3>Upload Product Image</h3><br/><br/>
 
         <div class="form-group">
-            <input type="file" {{ (!empty($product->productImg)) ? "disabled" : ''}} class="form-control-file"
-                   name="productimg" id="productimg" aria-describedby="fileHelp">
+            <div class="file-field input-field">
+                <div class="btn">
+                    <span>choose file to Upload</span>
+                    <input type="file" {{ (!empty($product->productImg)) ? "disabled" : ''}}  name="productimg"
+                           id="productimg" aria-describedby="fileHelp">
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
+                </div>
+            </div>
             <small id="fileHelp" class="form-text text-muted">Please upload a valid image file. Size of image should not
                 be more than 2MB.
             </small>

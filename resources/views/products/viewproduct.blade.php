@@ -33,15 +33,8 @@
             </tr>
             <tr>
                 <td>Product Image:</td>
-                <td><strong><img alt="Product Image" src="{{$product->productImg}}"/></strong></td>
+                <td><strong><img alt="Product Image" src="{{$product->productimg}}"/></strong></td>
             </tr>
         </table>
-        <a class="waves-effect waves-light btn" href="/products/create-step1"><i class="large material-icons">chevron_left</i>Back
-            to Step 1</a>
-        <a class="waves-effect waves-light btn" href="/products/create-step2"><i class="large material-icons">chevron_left</i>Back
-            to Step 2</a>
-        <button type="submit" class="btn waves-effect waves-light"><i class="large material-icons">chevron_right</i>Create
-            Product
-        </button>
     </form>
 @endsection

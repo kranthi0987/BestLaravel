@@ -1,6 +1,11 @@
 @extends('layout.layout')
 
 @section('content')
+    <style>
+        .select-option {
+            overflow-y: auto !important;
+        }
+    </style>
     <h1>Add New Product - Step 1</h1>
     <hr>
     <form action="/products/create-step1" method="post">
@@ -22,7 +27,7 @@
                     </option>
                     <option {{{ (isset($product->company) && $product->company == 'Mi') ? "selected=\"selected\"" : "" }}}>
                         Mi
-                    </option>
+                        </opti  on>
                     <option {{{ (isset($product->company) && $product->company == 'Samsung') ? "selected=\"selected\"" : "" }}}>
                         Samsung
                     </option>
@@ -33,31 +38,54 @@
         <div class="form-group">
             <label for="description">Product category</label>
             <label>
-                <select class="form-control" name="category">
+                <div class="input-field col s12">
+                    <select name="category">
+                        @foreach ($categories  as $category)
+                            <option
+                                value="{{ $category->product_category_name }}">{{ $category->product_category_name }}</option>
+                            {{{isset( $product->category ) }}}
+                        @endforeach
 
-                    @foreach ($categories  as $category)
-                        <option
-                            value="{{ $category->product_category_name }}">{{ $category->product_category_name }}</option>
-                        {{{isset( $product->category ) }}}
-                    @endforeach
-                </select>
+                    </select>
+                    {{--<label>Materialize Select</label>--}}
+                </div>
+                {{--<select class="dropdown-trigger btn" name="category">--}}
+
+                {{--@foreach ($categories  as $category)--}}
+                {{--<option--}}
+                {{--value="{{ $category->product_category_name }}">{{ $category->product_category_name }}</option>--}}
+                {{--{{{isset( $product->category ) }}}--}}
+                {{--@endforeach--}}
+                {{--</select>--}}
             </label>
         </div>
 
         <div class="form-group">
-            <label for="description">Product Amount</label>
-            <label for="productAmount"></label>
-            <input type="text" value="{{{ isset($product->amount) }}}"
-                   class="form-control" id="productAmount" name="amount"/>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="input_text" name="amount" type="number" data-length="5"
+                           value="{{{ isset($product->amount) }}}">
+                    <label for="input_text">Product Amount</label>
+                </div>
+            </div>
+
+            {{--<label for="productAmount">Product Amount</label>--}}
+            {{--<label for="productAmount"></label>--}}
+            {{--<input type="text" "--}}
+            {{--class="input-field col s6" id="productAmount" name="amount"/>--}}
         </div>
         <div class="form-group">
             <label for="description">Product Available</label><br/>
-            <label class="radio-inline"><input type="radio" name="available"
-                                               value="1" {{{ (isset($product->available) && $product->available == '1') ? "checked" : "" }}}>
-                Yes</label>
-            <label class="radio-inline"><input type="radio" name="available"
-                                               value="0" {{{ (isset($product->available) && $product->available == '0') ? "checked" : "" }}}>
-                No</label>
+            <label>
+                <input class="with-gap" type="radio" name="available"
+                       value="1" {{{ (isset($product->available) && $product->available == '1') ? "checked" : "" }}}>
+                <span>Yes</span>
+            </label>
+            <label>
+                <input class="with-gap" type="radio" name="available"
+                       value="0" {{{ (isset($product->available) && $product->available == '0') ? "checked" : "" }}}>
+                <span>No</span>
+            </label>
         </div>
         <div class="form-group">
             <label for="description">Product Description</label>
@@ -75,4 +103,21 @@
         @endif
         <button type="submit" class="btn btn-primary">Add Product Image</button>
     </form>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('select');
+            var instances = M.FormSelect.init(elems, options);
+        });
+
+        // Or with jQuery
+
+        $(document).ready(function () {
+            $('select').formSelect();
+        });
+        $(document).ready(function () {
+            $('input#input_text, textarea#textarea2').characterCounter();
+        });
+
+    </script>
+
 @endsection
