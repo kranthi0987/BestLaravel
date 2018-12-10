@@ -179,6 +179,8 @@ return [
 
         Collective\Html\HtmlServiceProvider::class,
 
+        Berkayk\OneSignal\OneSignalServiceProvider::class
+
     ],
 
     /*
@@ -230,7 +232,7 @@ return [
         'Avatar' => Laravolt\Avatar\Facade::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
-
+        'OneSignal' => Berkayk\OneSignal\OneSignalFacade::class
 
     ],
 
