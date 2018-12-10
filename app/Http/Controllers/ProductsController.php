@@ -20,7 +20,7 @@ class ProductsController extends Controller
     public function index(Request $request)
     {
         $request->session()->forget('product');
-        $products = Product::paginate(4);
+        $products = Product::paginate(25);
 
         return view('products.index', compact('products', $products));
     }

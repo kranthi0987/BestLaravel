@@ -4,7 +4,7 @@
     @if (Session::has('message'))
         <div class="alert alert-info">{{ Session::get('message') }}</div>
     @endif
-    <table class="table">
+    <table class="striped centered responsive-table">
         <thead class="thead-dark">
         <tr>
             <th scope="col">#</th>
@@ -14,6 +14,7 @@
             <th scope="col">Company</th>
             <th scope="col">Amount</th>
             <th scope="col">Available</th>
+            <th scope="col">Images</th>
         </tr>
         </thead>
         <tbody>
@@ -26,6 +27,9 @@
                 <td>{{$product->company}}</td>
                 <td>{{$product->amount}}</td>
                 <td>{{$product->available ? 'Yes' : 'No'}}</td>
+                <td>
+                    <div class="col s2"><img class="circle small responsive-img" src={{$product->productimg}}></div>
+                </td>
             </tr>
         @endforeach
         </tbody>
