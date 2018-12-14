@@ -149,4 +149,38 @@ class AuthController extends Controller
         return response()->json($request->user());
     }
 
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function updateUserAccount(Request $request, $id)
+    {
+//        $request->user();
+//        $currentUser = Auth::user();
+        $user = User::findOrFail($id);
+
+        $emailCheck = ($request->input('email') != '') && ($request->input('email') != $user->email);
+
+        if ($user->name != $request->input('name')) {
+
+        } else {
+
+        }
+        if ($emailCheck) {
+
+        } else {
+
+        }
+        $user->name = $request->input('name');
+        $user->first_name = $request->input('first_name');
+        $user->last_name = $request->input('last_name');
+
+        $user->save();
+        return response()->json();
+    }
+
 }

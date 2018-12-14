@@ -43,3 +43,10 @@ Route::group([
     Route::get('find/{token}', 'Api\PasswordResetController@find');
     Route::post('reset', 'Api\PasswordResetController@reset');
 });
+
+Route::group([
+    'middleware' => 'auth:api'
+], function () {
+    Route::post('updateUser', 'Api\AuthController@updateUserAccount');
+
+});
