@@ -23,7 +23,7 @@ class User extends Authenticatable
      * @var array
      */
 
-    protected $appends = ['avatar_url'];
+//    protected $appends = ['avatar_url'];
 
     public function getAvatarUrlAttribute()
     {

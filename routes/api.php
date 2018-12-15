@@ -14,27 +14,40 @@
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::group([
+Route::group(
+/**
+ *
+ */
+    [
     'prefix' => 'auth'
 ], function () {
     Route::post('login', 'Api\AuthController@login');
     Route::post('signup', 'Api\AuthController@signup');
     Route::get('signup/activate/{token}', 'Api\AuthController@signupActivate');
+
     Route::group([
         'middleware' => 'auth:api'
     ], function() {
         Route::get('logout', 'Api\AuthController@logout');
         Route::get('user', 'Api\AuthController@user');
+        Route::post('updateUser', 'Api\AuthController@updateUserAccount');
+        Route::post('updateavatar', 'Api\AuthController@update_avatar');
     });
 });
 
-Route::group([
+Route::group(/**
+ *
+ */
+    [
     'middleware' => 'api'
 ], function () {
     Route::get('products', 'Api\ProductsApiController@index');
 
 });
-Route::group([
+Route::group(/**
+ *
+ */
+    [
 //    'namespace' => 'Auth',
 //    'middleware' => 'api',
     'prefix' => 'password'
@@ -43,3 +56,14 @@ Route::group([
     Route::get('find/{token}', 'Api\PasswordResetController@find');
     Route::post('reset', 'Api\PasswordResetController@reset');
 });
+
+//Route::group(
+///**
+// *
+// */
+//    [
+//        'middleware' => 'auth:api'
+//], function () {
+//
+//
+//});
