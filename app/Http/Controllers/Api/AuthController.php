@@ -43,13 +43,15 @@ class AuthController extends Controller
             'address_id' => '1',
             'user_phone_number' => $request->user_phone_number,
             'password' => bcrypt($request->password),
-            'activation_token' => str_random(60)
+            'activation_token' => str_random(60),
+            'user_other_details' => str_random(50)
         ]);
-        $user->save();
 
+        $user->save();
         $avatar = (new \Laravolt\Avatar\Avatar)->create($user->user_name)->getImageObject()->encode('png');
         Storage::put('/public/avatars/' . $user->id . '/avatar.png', (string)$avatar);
-
+        $loc1 = '/storage/avatars/' . $user->id . '/avatar.png';
+        $user->user_avatar = $loc1;
 
         // Create the default image URL:
 //        $avatar = (new \Laravolt\Avatar\Avatar)->create($user->name);
@@ -57,7 +59,7 @@ class AuthController extends Controller
 //        // Save it using Storage instead of Avatar::save()
 //        $image = $avatar->getImageObject()->encode('png');
 //        Storage::put('/storage/avatars/' . $user->id . '/avatar.png', $image->stream('png'));
-
+        $user->save();
         $user->roles()->attach(Role::where('name', 'client')->first());
 
         $user->notify(new SignupActivate($user));

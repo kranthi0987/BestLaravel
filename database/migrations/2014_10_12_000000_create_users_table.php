@@ -1,4 +1,8 @@
 <?php
+/**
+ * Copyright (c) 2018.
+ * sanjay kranthi  kranthi0987@gmail.com
+ */
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -21,10 +25,10 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('user_phone_number');
-            $table->string('user_avatar')->default('avatar.png');
+            $table->string('user_avatar');
             $table->boolean('active')->default(false);
             $table->string('activation_token');
-            $table->string('user_other_details')->nullable();
+            $table->string('user_other_details');
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
