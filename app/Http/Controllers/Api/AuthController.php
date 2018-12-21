@@ -211,38 +211,37 @@ class AuthController extends Controller
 //        $user->last_name = $request->input('last_name');
 //
         $user->save();
-        return response()->json($user);
+        return response()->json(['message' => 'Successfully updated the profile',
+            'stats' => 'true']);
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function update_avatar(Request $request)
     {
         $currentUser = $request->user();
         $id = $currentUser->id;
         $user = User::findOrFail($id);
-
         $request->validate([
             'Avatar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-
         $avatarName1 = 'avatar' . time() . $request->Avatar->getClientOriginalName();
         $avatarName = str_replace(' ', '_', $avatarName1);
         if ($request->hasFile('Avatar')) {
 //            echo("file" . $avatarName);
             //$request->avatar->move('avatars',$avatarName);
             $request->Avatar->move(public_path('/avatars/' . $user->id), $avatarName);
-
         }
-
 //        $user = Auth::user();
-//
 //        $avatarName = $user->id.'_avatar'.time().'.'.request()->avatar->getClientOriginalExtension();
-//
 //        $request->avatar->storeAs('avatars',$avatarName);
-//
         $user->user_avatar = $avatarName;
         $user->save();
 
-        return response()->json($user);
+        return response()->json(['message' => 'Successfully Updated the avatar',
+            'stats' => 'true']);
 
     }
 }
