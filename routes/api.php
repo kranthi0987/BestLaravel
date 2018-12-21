@@ -32,6 +32,7 @@ Route::group(
         Route::get('user', 'Api\AuthController@user');
         Route::post('updateUser', 'Api\AuthController@updateUserAccount');
         Route::post('updateavatar', 'Api\AuthController@update_avatar');
+        Route::get('products', 'Api\ProductsApiController@index');
     });
 });
 
@@ -41,7 +42,7 @@ Route::group(/**
     [
     'middleware' => 'api'
 ], function () {
-    Route::get('products', 'Api\ProductsApiController@index');
+
 
 });
 Route::group(/**
