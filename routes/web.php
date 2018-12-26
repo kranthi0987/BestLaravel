@@ -32,3 +32,7 @@ Route::post('/products/remove-image', 'ProductsController@removeImage');
 Route::get('/products/create-step3', 'ProductsController@createStep3');
 Route::post('/products/store', 'ProductsController@store');
 Route::get('/viewproduct/{id}', 'ProductsController@viewproduct');
+
+//image project
+Route::get('ImageView', 'ImageController@index');
+Route::post('ImageView', 'ImageController@store');

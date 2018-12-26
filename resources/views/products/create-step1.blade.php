@@ -27,7 +27,7 @@
                     </option>
                     <option {{{ (isset($product->company) && $product->company == 'Mi') ? "selected=\"selected\"" : "" }}}>
                         Mi
-                        </opti  on>
+                    </option>
                     <option {{{ (isset($product->company) && $product->company == 'Samsung') ? "selected=\"selected\"" : "" }}}>
                         Samsung
                     </option>
