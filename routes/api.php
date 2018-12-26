@@ -68,3 +68,5 @@ Route::group(/**
 //
 //
 //});
+
+Route::resource('images', 'Api\ImagesController');
