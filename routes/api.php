@@ -69,4 +69,4 @@ Route::group(/**
 //
 //});
 
-Route::resource('images', 'Api\ImagesController');
+Route::resource('images', 'Api\ImagesApiController');
