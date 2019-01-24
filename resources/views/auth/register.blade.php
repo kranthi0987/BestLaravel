@@ -27,13 +27,13 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="name"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Number') }}</label>
+                                <label for="number"
+                                       class="col-md-4 col-form-label text-md-right">{{ __('Mobile number') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="name" type="text"
+                                    <input id="number" type="text"
                                            class="form-control{{ $errors->has('number') ? ' is-invalid' : '' }}"
-                                           name="name" value="{{ old('number') }}" required autofocus>
+                                           name="number" value="{{ old('number') }}" required autofocus>
 
                                     @if ($errors->has('number'))
                                         <span class="invalid-feedback" role="alert">
