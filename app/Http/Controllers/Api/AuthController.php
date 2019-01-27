@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 2018.
+ * Copyright (c) 2019.
  * sanjay kranthi  kranthi0987@gmail.com
  */
 
@@ -169,7 +169,6 @@ class AuthController extends Controller
         if ($request->has('user_id')) {
             $user->user_id = $request->input('user_id');
 
-
         }
         if ($request->has('address_id')) {
             $user->address_id = $request->input('address_id');
@@ -232,7 +231,9 @@ class AuthController extends Controller
         if ($request->hasFile('Avatar')) {
 //            echo("file" . $avatarName);
             //$request->avatar->move('avatars',$avatarName);
-            $request->Avatar->move(public_path('/avatars/' . $user->id), $avatarName);
+//            $request->Avatar->move(public_path('/avatars/' . $user->id), $avatarName);
+            $request->Avatar->move(public_path('/avatars/'), $avatarName);
+
         }
 //        $user = Auth::user();
 //        $avatarName = $user->id.'_avatar'.time().'.'.request()->avatar->getClientOriginalExtension();
