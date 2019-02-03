@@ -15,7 +15,7 @@
             <div class="file-field input-field">
                 <div class="btn">
                     <span>choose file to Upload</span>
-                    <input type="file" {{ (!empty($product->productImg)) ? "disabled" : ''}}  name="productimg"
+                    <input type="file" {{ (!empty($product->productImg)) ? "disabled" : ''}}  name="productimg[]"
                            id="productimg" aria-describedby="fileHelp">
                 </div>
                 <div class="file-path-wrapper">

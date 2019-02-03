@@ -1,11 +1,7 @@
-/* jquery Tocify - v1.8.0 - 2013-09-16
-* http://www.gregfranko.com/jquery.tocify.js/
-* Copyright (c) 2013 Greg Franko; Licensed MIT
-* Modified lightly by Robert Lord to fix a bug I found,
-* and also so it adds ids to headers
-* also because I want height caching, since the
-* height lookup for h1s and h2s was causing serious
-* lag spikes below 30 fps */
+/*
+ * Copyright (c) 2019.
+ * sanjay kranthi  kranthi0987@gmail.com
+ */
 
 // Immediately-Invoked Function Expression (IIFE) [Ben Alman Blog Post](http://benalman.com/news/2010/11/immediately-invoked-function-expression/) that calls another IIFE that contains all of the plugin logic.  I used this pattern so that anyone viewing this code would not have to scroll to the bottom of the page to view the local parameters that were passed to the main IIFE.
 (function (tocify) {
@@ -1035,6 +1031,6 @@
 
     });
 
-})
+});
 )
-; //end of plugin
+//end of plugin

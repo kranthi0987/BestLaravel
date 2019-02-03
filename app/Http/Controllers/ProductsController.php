@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 2018.
+ * Copyright (c) 2019.
  * sanjay kranthi  kranthi0987@gmail.com
  */
 
@@ -90,6 +90,7 @@ class ProductsController extends Controller
             $request->validate([
                 'productimg' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
+
             $fileName = "productImage-" . time() . '.' . request()->productimg->getClientOriginalExtension();
             $request->productimg->move(public_path() . '/storage/productimg/', $fileName);
 //            $file->move(public_path().'/files/', $name);

@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 2018.
+ * Copyright (c) 2019.
  * sanjay kranthi  kranthi0987@gmail.com
  */
 
@@ -69,4 +69,6 @@ Route::group(/**
 //
 //});
 
-Route::resource('images', 'Api\ImagesApiController');
+//Route::group(['middleware' => 'api']
+Route::resource('images', 'Api\ImageApiController');
+Route::resource('devicemgmt', 'Api\DeviceRegistrationController');

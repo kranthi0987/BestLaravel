@@ -7,10 +7,10 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\ImageProjectModel;
+use App\Models\DeviceModel;
 use Illuminate\Http\Request;
 
-class ImageApiController extends Controller
+class DeviceRegistrationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,8 +20,9 @@ class ImageApiController extends Controller
     public function index()
     {
         //
-        $products = ImageProjectModel::all();
-        return response()->json($products);
+        $devices = DeviceModel::all();
+        return response()->json($devices);
+
     }
 
     /**
@@ -32,6 +33,8 @@ class ImageApiController extends Controller
     public function create()
     {
         //
+
+
     }
 
     /**
@@ -43,7 +46,25 @@ class ImageApiController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'device_model' => 'required|string',
+            'device_resolution' => 'required|string',
+            'device_id' => 'required|string',
+            'registered' => 'required|string'
+        ]);
+        $device = new DeviceModel([
+            'device_model' => $request->device_model,
+            'device_resolution' => $request->device_resolution,
+            'device_id' => $request->device_id,
+            'registered' => $request->registered,
 
+        ]);
+        $device->save();
+        return response()->json([
+            'message' => 'Successfully Registered  device!',
+            'stats' => 'true',
+            'registered' => $device->registered
+        ], 201);
     }
 
     /**
