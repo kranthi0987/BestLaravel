@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "437da721ca9e6c9ca5f32bb62f228510",
+    "content-hash": "7669a993b953660f795754f44f72599f",
     "packages": [
         {
             "name": "berkayk/onesignal-laravel",
@@ -69,6 +69,59 @@
                 "push"
             ],
             "time": "2018-11-08T11:43:37+00:00"
+        },
+        {
+            "name": "camilo-manrique/laravel-filter",
+            "version": "1.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/CamiloManrique/laravel-filter.git",
+                "reference": "459223b16e17329ade95127f8714a7cf6adcf639"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/CamiloManrique/laravel-filter/zipball/459223b16e17329ade95127f8714a7cf6adcf639",
+                "reference": "459223b16e17329ade95127f8714a7cf6adcf639",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": "5.*",
+                "illuminate/database": "5.*",
+                "illuminate/support": "5.*",
+                "php": ">=7.0.0"
+            },
+            "require-dev": {
+                "fzaninotto/faker": "~1.4",
+                "mockery/mockery": "0.9.*",
+                "orchestra/database": "~3.5.0",
+                "orchestra/testbench": "~3.0",
+                "phpunit/phpunit": "~6.0"
+            },
+            "type": "package",
+            "autoload": {
+                "psr-4": {
+                    "CamiloManrique\\LaravelFilter\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Camilo Manrique",
+                    "email": "camilomanriquec@gmail.com"
+                }
+            ],
+            "description": "Eloquent model filtering based on URL queries",
+            "keywords": [
+                "filter",
+                "laravel",
+                "laravel-filter",
+                "laravel-search",
+                "search"
+            ],
+            "time": "2018-04-15T06:09:17+00:00"
         },
         {
             "name": "danielstjules/stringy",
@@ -6343,23 +6396,23 @@
         },
         {
             "name": "sebastian/diff",
-            "version": "3.0.1",
+            "version": "3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/diff.git",
-                "reference": "366541b989927187c4ca70490a35615d3fef2dce"
+                "reference": "720fcc7e9b5cf384ea68d9d930d480907a0c1a29"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/366541b989927187c4ca70490a35615d3fef2dce",
-                "reference": "366541b989927187c4ca70490a35615d3fef2dce",
+                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/720fcc7e9b5cf384ea68d9d930d480907a0c1a29",
+                "reference": "720fcc7e9b5cf384ea68d9d930d480907a0c1a29",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.1"
             },
             "require-dev": {
-                "phpunit/phpunit": "^7.0",
+                "phpunit/phpunit": "^7.5 || ^8.0",
                 "symfony/process": "^2 || ^3.3 || ^4"
             },
             "type": "library",
@@ -6395,7 +6448,7 @@
                 "unidiff",
                 "unified diff"
             ],
-            "time": "2018-06-10T07:54:39+00:00"
+            "time": "2019-02-04T06:01:07+00:00"
         },
         {
             "name": "sebastian/environment",
@@ -6837,6 +6890,49 @@
             ],
             "description": "A small library for converting tokenized PHP source code into XML and potentially other formats",
             "time": "2017-04-07T12:08:54+00:00"
+        },
+        {
+            "name": "unlu/laravel-api-query-builder",
+            "version": "v1.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/selahattinunlu/laravel-api-query-builder.git",
+                "reference": "2a85dea4ee09046209d09821725f9b1ceb4b97fa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/selahattinunlu/laravel-api-query-builder/zipball/2a85dea4ee09046209d09821725f9b1ceb4b97fa",
+                "reference": "2a85dea4ee09046209d09821725f9b1ceb4b97fa",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": ">=5.0.0",
+                "illuminate/http": ">=5.0.0",
+                "illuminate/support": ">=5.0.0",
+                "php": ">=5.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Unlu\\Laravel\\Api\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Selahattin Ünlü",
+                    "email": "selahattin.unlu@yandex.com"
+                }
+            ],
+            "description": "Laravel API Query Builder Package.",
+            "keywords": [
+                "api",
+                "laravel"
+            ],
+            "time": "2017-06-13T23:49:29+00:00"
         },
         {
             "name": "webmozart/assert",

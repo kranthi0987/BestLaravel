@@ -20,6 +20,7 @@ class ImageApiController extends Controller
     public function index()
     {
         //
+
         $products = ImageProjectModel::all();
         return response()->json($products);
     }
@@ -55,6 +56,10 @@ class ImageApiController extends Controller
     public function show($id)
     {
         //
+        $filters = ["id" => $id];
+        $products = ImageProjectModel::filterAndGet($filters);
+        return response()->json($products);
+
     }
 
     /**

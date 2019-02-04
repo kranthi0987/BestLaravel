@@ -1,4 +1,8 @@
 <?php
+/**
+ * Copyright (c) 2019.
+ * sanjay kranthi  kranthi0987@gmail.com
+ */
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
