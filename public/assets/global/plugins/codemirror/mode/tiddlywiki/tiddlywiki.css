@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) 2019.
+ * sanjay kranthi  kranthi0987@gmail.com
+ */
+
+span.cm-underlined {
+    text-decoration: underline;
+}
+
+span.cm-strikethrough {
+    text-decoration: line-through;
+}
+
+span.cm-brace {
+    color: #170;
+    font-weight: bold;
+}
+
+span.cm-table {
+    color: blue;
+    font-weight: bold;
+}

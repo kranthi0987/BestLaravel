@@ -1,0 +1,227 @@
+<!--
+  ~ Copyright (c) 2019.
+  ~ sanjay kranthi  kranthi0987@gmail.com
+  -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <title>Mapplic - Custom Interactive Map Plugin - United Kingdom Example</title>
+    <!-- Viewport for Responsivity -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"
+          name="viewport">
+    <meta
+        content="Vector United Kingdom map with clickable states and pins, an example of using Mapplic, a premium custom interactive map plugin to display custom image or vector (SVG) maps."
+        name="description">
+    <!-- Stylesheets -->
+    <link href='http://fonts.googleapis.com/css?family=Maven+Pro:400,700' rel='stylesheet' type='text/css'>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/map.css" rel="stylesheet" type="text/css">
+    <link href="mapplic/mapplic.css" rel="stylesheet" type="text/css">
+    <!-- Internet Explorer -->
+    <!--[if lt IE 9]>
+    <link rel="stylesheet" type="text/css" href="mapplic/mapplic-ie.css">
+    <script type="text/javascript" src="js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<div id="wrap">
+    <!-- Site header -->
+    <header id="header">
+        <div class="inner">
+            <nav>
+                <ul id="main-menu">
+                    <li>
+                        <a class="usage" href="#">Usage</a>
+                    </li>
+                    <li>
+                        <a href="http://codecanyon.net/user/sekler?ref=sekler#contact" target="_blank">Contact</a>
+                    </li>
+                    <li>
+                        <a class="button"
+                           href="http://codecanyon.net/item/custom-interactive-map-jquery-plugin/6275001?ref=sekler"
+                           target="_blank">Purchase
+                            <span>$18</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <a href="./" id="logo"></a>
+            <h1>The most
+                <strong>advanced</strong> custom interactive map
+                <br> plugin on the web</h1>
+            <div class="clear"></div>
+        </div>
+    </header>
+    <!-- Site content -->
+    <div id="content">
+        <section class="inner over" id="map-section">
+            <div class="editor-window">
+                <div class="window-mockup brown"></div>
+                <div class="editor-body"><code>
+                    {<br>
+                    &nbsp;&nbsp;&nbsp;"id": "newlandmark",<br>
+                    &nbsp;&nbsp;&nbsp;"title": "New Landmark",<br>
+                    &nbsp;&nbsp;&nbsp;"description": "Creating a new landmark is that easy!",<br>
+                    &nbsp;&nbsp;&nbsp;"x": "<span class="mapplic-coordinates-x">0.0000</span>",<br>
+                    &nbsp;&nbsp;&nbsp;"y": "<span class="mapplic-coordinates-y">0.0000</span>",<br>
+                    &nbsp;&nbsp;&nbsp;...<br>
+                    }
+                </code></div>
+            </div>
+            <!-- Map -->
+            <div class="map-container">
+                <div class="window-mockup">
+                    <div class="window-bar"></div>
+                </div>
+                <div id="mapplic"></div>
+            </div>
+            <ul id="examples">
+                <li>
+                    <a href="./">Mall Map</a>
+                </li>
+                <li>
+                    <a href="apartment.html">Apartment</a>
+                </li>
+                <li>
+                    <a href="world.html">World</a>
+                </li>
+                <li>
+                    <a href="continents.html">Continents</a>
+                </li>
+                <li>
+                    <a href="europe.html">Europe</a>
+                </li>
+                <li>
+                    <a href="usa.html">USA</a>
+                </li>
+                <li>
+                    <a href="canada.html">Canada</a>
+                </li>
+                <li>
+                    <a href="australia.html">Australia</a>
+                </li>
+                <li>
+                    <a href="france.html">France</a>
+                </li>
+                <li>
+                    <a href="germany.html">Germany</a>
+                </li>
+                <li>
+                    <a href="italy.html">Italy</a>
+                </li>
+                <li class="active">
+                    <a href="uk.html">United Kingdom</a>
+                </li>
+                <li>
+                    <a href="switzerland.html">Switzerland</a>
+                </li>
+                <li>
+                    <a href="russia.html">Russia</a>
+                </li>
+                <li>
+                    <a href="china.html">China</a>
+                </li>
+                <li>
+                    <a href="brazil.html">Brazil</a>
+                </li>
+            </ul>
+        </section>
+        <section class="purple">
+            <div class="inner">
+                <h1>Bring your
+                    <strong>images</strong> and
+                    <strong>vector graphics</strong> to life!</h1>
+                <p>It can be used for multi storey buildings, airports, shopping malls, department stores, resorts,
+                    hospitals, harbors, campings or festivals, ski tracks, sport stadiums, cruise ships or anything you
+                    can think of, your imagination
+                    is the limit. It's also perfectly suitable for touchscreen kiosk maps.</p>
+            </div>
+        </section>
+        <section class="inner features">
+            <div class="container">
+                <div class="one-third icon landmark">
+                    <h3>Unlimited landmarks</h3>
+                    <p>Any number of locations with unique pins and various actions</p>
+                </div>
+                <div class="one-third icon layer">
+                    <h3>Unlimited floors</h3>
+                    <p>Multiple floors are supported without any limitation</p>
+                </div>
+                <div class="one-third icon link">
+                    <h3>Deeplinking</h3>
+                    <p>Every location can be referenced by it's own URL</p>
+                </div>
+            </div>
+            <div class="container">
+                <div class="one-third icon browser">
+                    <h3>Browser support</h3>
+                    <p>Works great in every major browser (even Internet Explorer 8)</p>
+                </div>
+                <div class="one-third  icon responsive">
+                    <h3>Responsive design</h3>
+                    <p>Provides optimal experience across a wide range of devices</p>
+                </div>
+                <div class="one-third icon mobile">
+                    <h3>Touch optimised</h3>
+                    <p>Touchscreen devices, like tablets and smartphones are also supported</p>
+                </div>
+            </div>
+        </section>
+        <section class="blue">
+            <div class="inner">
+                <a href="http://www.mapplic.com" id="wordpress" target="_blank">
+                    <img alt="WordPress" src="images/wp.png">
+                    <strong>WordPress</strong> version available!</a>
+            </div>
+        </section>
+    </div>
+    <!-- Site footer -->
+    <footer id="footer">
+        <div class="inner">
+            <a href="http://codecanyon.net/user/sekler?ref=sekler#contact" id="contact" target="_blank"></a>
+            <span>Copyright &copy; 2015
+                        <a href="http://codecanyon.net/user/sekler?ref=sekler">sekler</a>. All rights reserved.</span>
+        </div>
+    </footer>
+</div>
+<!-- Scripts -->
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hammer.min.js" type="text/javascript"></script>
+<script src="js/jquery.easing.js" type="text/javascript"></script>
+<script src="js/jquery.mousewheel.js" type="text/javascript"></script>
+<script src="js/smoothscroll.js" type="text/javascript"></script>
+<script src="mapplic/mapplic.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#mapplic').mapplic(
+            {
+                source: 'uk.json',
+                height: 420,
+                animate: false,
+                sidebar: false,
+                minimap: false,
+                locations: true,
+                deeplinking: true,
+                fullscreen: false,
+                hovertip: true,
+                developer: true,
+                maxscale: 2,
+                zoom: true
+            });
+        $('.usage').click(function (e) {
+            e.preventDefault();
+            $('.editor-window').slideToggle(200);
+        });
+        $('.editor-window .window-mockup').click(function () {
+            $('.editor-window').slideUp(200);
+        });
+    });
+</script>
+</body>
+
+</html>

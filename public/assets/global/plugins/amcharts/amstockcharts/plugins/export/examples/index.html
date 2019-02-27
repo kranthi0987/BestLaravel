@@ -1,0 +1,69 @@
+<!--
+  ~ Copyright (c) 2019.
+  ~ sanjay kranthi  kranthi0987@gmail.com
+  -->
+
+<html>
+
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <style type="text/css">
+        iframe {
+            width: 900px;
+            height: 600px;
+            padding: 0;
+            border: 2px solid #ddd;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #controls {
+            background: #ccc;
+            opacity: 0.5;
+            padding: 5px 8px;
+            font-size: 14px;
+            font-weight: bold;
+            font-family: Verdana;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script type="text/javascript">
+        function setType(type) {
+            $('#iframe').attr('src', type);
+        }
+
+        function reload() {
+            setType($('#type').val() + "?" + Number(new Date()));
+        }
+    </script>
+</head>
+
+<body>
+<div id="controls">
+    <select id="type" onchange="setType(this.options[this.selectedIndex].value);">
+        <option selected="selected" value="pie1.html">Pie #1 (Simple w/ legend)</option>
+        <option value="pie2.html"/>
+        Pie #2 (3D w/ legend)</option>
+        <option value="pie3.html"/>
+        Pie #3 (w/ ext. legend left)</option>
+        <option value="pie4.html"/>
+        Pie #4 Multiple instances</option>
+        <option value="serial1.html">Serial #1 (Area)</option>
+        <option value="serial2.html">Serial #2 (Bar &amp; Line)</option>
+        <option value="serial3.html">Serial #3 (Line w/ zoom)</option>
+        <option value="xy.html">XY</option>
+        <option value="radar.html">Radar</option>
+        <option value="gauge.html">Gauge</option>
+        <option value="funnel.html">Funnel</option>
+        <option value="stock.html">Stock</option>
+        <option value="map.html">Map</option>
+        <option value="gantt.html">Gantt</option>
+    </select>
+    <input onclick="reload();" type="button" value="reload"/></div>
+<iframe frameborder="0" id="iframe" src="pie1.html"></iframe>
+</body>
+
+</html>

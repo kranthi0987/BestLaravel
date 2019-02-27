@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 2018.
+ * Copyright (c) 2019. 
  * sanjay kranthi  kranthi0987@gmail.com
  */
 
@@ -16,8 +16,16 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('admin.admin_panel.user_lock');
 });
+Route::post('/userlogin', function () {
+    return view('admin.admin_panel.user_login');
+});
+
+Route::post('/dashboard', function () {
+    return view('admin.admin_panel.dashboard');
+});
+
 
 Auth::routes();
 

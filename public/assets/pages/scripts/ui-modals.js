@@ -1,0 +1,26 @@
+/*
+ * Copyright (c) 2019. 
+ * sanjay kranthi  kranthi0987@gmail.com
+ */
+
+var UIModals = function () {
+
+    var handleModals = function () {
+        $("#draggable").draggable({
+            handle: ".modal-header"
+        });
+    }
+
+    return {
+        //main function to initiate the module
+        init: function () {
+            handleModals();
+        }
+
+    };
+
+}();
+
+jQuery(document).ready(function () {
+    UIModals.init();
+});
